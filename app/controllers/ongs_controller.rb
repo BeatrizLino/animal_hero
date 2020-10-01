@@ -5,7 +5,11 @@ class OngsController < ApplicationController
   # GET /ongs
   # GET /ongs.json
   def index
-    @ongs = Ong.all
+    if params[:nome].nil?
+      @ongs = Ong.all
+    else
+      @ongs = Ong.where("nome LIKE ?", "%#{params[:nome]}%")
+    end
   end
 
   # GET /ongs/1
