@@ -1,5 +1,6 @@
 class OngsController < ApplicationController
   before_action :set_ong, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /ongs
   # GET /ongs.json
@@ -19,6 +20,7 @@ class OngsController < ApplicationController
   # GET /ongs/new
   def new
     @ong = Ong.new
+
   end
 
   # GET /ongs/1/edit
@@ -29,7 +31,7 @@ class OngsController < ApplicationController
   # POST /ongs.json
   def create
     @ong = Ong.new(ong_params)
-
+    @ong.user_id = session[:user_id]
     respond_to do |format|
       if @ong.save
         format.html { redirect_to @ong, notice: 'Ong criada com sucesso' }
