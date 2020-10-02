@@ -1,6 +1,6 @@
 <%= form_tag(animals_path, method: 'get') do %>
   <div class="row">
-      <%= label_tag "Buscar Animal: "%>
+      <%= label_tag "Nome do Animal: "%>
       <%= text_field_tag :nome%>
       <%= label_tag "Situação: "%>
       <%= select_tag :situacao, options_for_select(['Abandono', 'Propriedade']),  {include_blank:"Selecione..."}%>
