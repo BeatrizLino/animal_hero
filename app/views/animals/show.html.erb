@@ -35,5 +35,10 @@
   <%= @animal.situacao %>
 </p>
 
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animals_path %>
+<p>
+  <strong>Ong:</strong>
+  <%= @animal.ong.nome %>
+</p>
+
+<%= link_to 'Editar', edit_animal_path(@animal), class:"btn btn-primary"%> - 
+<%= link_to 'Voltar', animals_path, class:"btn btn-info" %>
