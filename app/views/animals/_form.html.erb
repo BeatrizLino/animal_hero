@@ -13,45 +13,63 @@
 
   <div class="field">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, class: 'form-control' %>
   </div>
 
+  <br>
+
   <div class="field">
-    <%= form.label :raca %>
-    <%= form.text_field :raca %>
+    <%= form.label :raça %>
+    <%= form.text_field :raca, class: 'form-control' %>
   </div>
+
+  <br>
 
   <div class="field">
     <%= form.label :especie %>
-    <%= form.text_field :especie %>
+    <%= form.text_field :especie, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :sexo %>
-    <%= form.select :sexo, ['Femea', 'Macho'] %>
-  </div>
+  <br>
 
   <div class="field">
     <%= form.label :peso %>
-    <%= form.text_field :peso %>
+    <%= form.text_field :peso, class: 'form-control' %>
   </div>
+
+  <br>
 
   <div class="field">
     <%= form.label :data_nascimento%>
     <%= form.date_select :data_nascimento, order: [:day, :month, :year], :use_month_numbers => true %>
   </div>
 
+  <br>
+
   <div class="field">
-    <%= form.label :situacao %>
-    <%= form.text_field :situacao %>
+    <%= form.label :sexo %>
+    <%= form.select :sexo, ['Femea', 'Macho'] %>
   </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label :situação %>
+    <%= form.select :situacao, ['Abandono', 'Propriedade',]%>
+  </div>
+
+  <br>
 
   <div class="field">
     <%= form.label :ong_id%>
     <%= form.select("ong_id", @ong_options , {include_blank:"Selecione..."}) %>
   </div>
 
+  <br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class: 'btn btn-primary'%>
   </div>
+
+  <br>
 <% end %>

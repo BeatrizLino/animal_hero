@@ -15,12 +15,13 @@
       <tr>
         <th><%= model_class.human_attribute_name(:id) %></th>
         <th><%= model_class.human_attribute_name(:nome) %></th>
-        <th><%= model_class.human_attribute_name(:raca) %></th>
+        <th><%= model_class.human_attribute_name(:raça) %></th>
         <th><%= model_class.human_attribute_name(:especie) %></th>
         <th><%= model_class.human_attribute_name(:sexo) %></th>
         <th><%= model_class.human_attribute_name(:peso) %></th>
-        <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
-        <th><%= model_class.human_attribute_name(:situacao) %></th>
+        <th><%= model_class.human_attribute_name(:Data_de_Nascimento) %></th>
+        <th><%= model_class.human_attribute_name(:situação) %></th>
+        <th><%= model_class.human_attribute_name(:Ong) %></th>
         <th style="width: 170px" ><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
       </thead>
@@ -35,6 +36,7 @@
           <td><%= animals.peso %></td>
           <td><%= animals.data_nascimento %></td>
           <td><%= animals.situacao%></td>
+          <td><%= animals.ong.nome%></td>
           
     
           <td>
