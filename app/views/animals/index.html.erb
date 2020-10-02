@@ -1,5 +1,12 @@
 <%= form_tag(animals_path, method: 'get') do %>
+  <div class="row">
+    <%= label_tag :Buscar_animal %>
+    <%= text_field_tag :nome%>
+    <%= button_tag(value: "commit", type: 'submit', class: "btn btn-primary") do%>
+    Pesquisar
     <%end %>
+</div>
+<%end %>
     
     <%- model_class = Animal -%>
     <div class="page-header">
