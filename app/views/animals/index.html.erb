@@ -1,16 +1,18 @@
 <%= form_tag(animals_path, method: 'get') do %>
   <div class="row">
-    <%= label_tag :Buscar_animal %>
-    <%= text_field_tag :nome%>
-    <%= button_tag(value: "commit", type: 'submit', class: "btn btn-primary") do%>
-    Pesquisar
-    <%end %>
-</div>
+      <%= label_tag "Buscar Animal: "%>
+      <%= text_field_tag :nome%>
+      <%= label_tag "Situação: "%>
+      <%= select_tag :situacao, options_for_select(['Abandono', 'Propriedade']),  {include_blank:"Selecione..."}%>
+      <%= button_tag(value: "commit", type: 'submit', class: "btn btn-primary") do%>
+      buscar
+      <%end %>
+  </div>
 <%end %>
     
     <%- model_class = Animal -%>
     <div class="page-header">
-      <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+      <h1><%=t '.title', :default => "Animais" %>
       </h1>
     </div>
     
