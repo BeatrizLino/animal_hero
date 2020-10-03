@@ -5,12 +5,16 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
+    @ong = Ong.where(user_id: session[:user_id])
     if params[:situacao].present?
       @animals = Animal.where("situacao LIKE ?", "%#{params[:situacao]}%") if params[:situacao].present?
+      @animals = @animals.where(ong_id: @ong.ids)
     elsif params[:nome].present?
       @animals = Animal.where("nome LIKE ?", "%#{params[:nome]}%") if params[:nome].present?
+      @animals = @animals.where(ong_id: @ong.ids)
     else
       @animals = Animal.all
+      @animals = @animals.where(ong_id: @ong.ids)
     end
   end
 
