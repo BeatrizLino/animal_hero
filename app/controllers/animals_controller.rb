@@ -5,12 +5,12 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-
-    if params[:nome].nil? and params[:situacao].nil?
-      @animals = Animal.all
-    else
-      @animals = Animal.where("nome LIKE ?", "%#{params[:nome]}%") if params[:nome].present?
+    if params[:situacao].present?
       @animals = Animal.where("situacao LIKE ?", "%#{params[:situacao]}%") if params[:situacao].present?
+    elsif params[:nome].present?
+      @animals = Animal.where("nome LIKE ?", "%#{params[:nome]}%") if params[:nome].present?
+    else
+      @animals = Animal.all
     end
   end
 
