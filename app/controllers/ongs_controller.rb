@@ -1,10 +1,16 @@
 class OngsController < ApplicationController
   before_action :set_ong, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /ongs
   # GET /ongs.json
   def index
-    @ongs = Ong.all
+    @ongs = Ong.where(user_id: session[:user_id])
+
+    if params[:nome].present?
+      @ongs = @ongs.where("nome LIKE ?", "%#{params[:nome]}%")
+  
+    end
   end
 
   # GET /ongs/1
@@ -15,6 +21,7 @@ class OngsController < ApplicationController
   # GET /ongs/new
   def new
     @ong = Ong.new
+
   end
 
   # GET /ongs/1/edit
@@ -25,7 +32,7 @@ class OngsController < ApplicationController
   # POST /ongs.json
   def create
     @ong = Ong.new(ong_params)
-
+    @ong.user_id = session[:user_id]
     respond_to do |format|
       if @ong.save
         format.html { redirect_to @ong, notice: 'Ong criada com sucesso' }
@@ -56,7 +63,7 @@ class OngsController < ApplicationController
   def destroy
     @ong.destroy
     respond_to do |format|
-      format.html { redirect_to ongs_url, notice: 'Ong was successfully destroyed.' }
+      format.html { redirect_to ongs_url, notice: 'Ong deletada com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +76,6 @@ class OngsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ong_params
-      params.require(:ong).permit(:nome, :email, :estado, :logo)
+      params.require(:ong).permit(:nome, :email, :estado, :logo, :user_id)
     end
 end

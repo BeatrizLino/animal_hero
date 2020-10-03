@@ -1,9 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @ong.nome %>
-</p>
+<h1> <%= @ong.nome %></h1>
 
 <p>
   <strong>Email:</strong>
@@ -20,5 +15,5 @@
   <%= @ong.logo %>
 </p>
 
-<%= link_to 'Edit', edit_ong_path(@ong) %> |
-<%= link_to 'Back', ongs_path %>
+<%= link_to 'Editar', edit_ong_path(@ong), class:"btn btn-primary" %>  - 
+<%= link_to 'Voltar', ongs_path, class:"btn btn-info" %>

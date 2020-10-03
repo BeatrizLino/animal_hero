@@ -1,5 +1,8 @@
 {
   "name": "animal_hero",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "popper.js": "^1.16.1"
+  }
 }
